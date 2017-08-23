@@ -1,4 +1,4 @@
-
+﻿
 exports.updateMenu=function(menuArray){
   const async = require('async');
   const request = require('request');
@@ -24,8 +24,10 @@ const tasks = [
           if (!err && res.statusCode === 200) {
             let $ = cheerio.load(html);
             let data_num =[];
+
+            //수정사항: data_num[1]   eq(1)로 변경할것
               data_num[0] = $('.titletable').find("a").eq(0).attr("href").substring(20,24);
-              data_num[1] = $('.titletable').find("a").eq(1).attr("href").substring(20,24);
+              data_num[1] = $('.titletable').find("a").eq(0).attr("href").substring(20,24);
 
             callback(err,data_num);
           }
@@ -115,7 +117,7 @@ exports.updateTodayMenu=function(menuArray,todayMenu){
     var commonMessage = require('../common/commonMessage');
     var date_data;
     var date= new Date();
-    //var date = new Date("June 15, 2017");
+  //   var date = new Date("August 24, 2017");
 
      var day=new Array('일','월','화','수','목','금','토');
      var day_num=date.getDay();
@@ -133,6 +135,7 @@ exports.updateTodayMenu=function(menuArray,todayMenu){
           todayMenu.lunch=menuArray[i].lunch;
           todayMenu.dinner=menuArray[i].dinner;
           todayMenu.extra=menuArray[i].extra;
+
           return;
         }
     }

@@ -1,4 +1,4 @@
-﻿
+
 exports.updateMenu=function(menuArray){
   const async = require('async');
   const request = require('request');
@@ -27,7 +27,7 @@ const tasks = [
 
             //수정사항: data_num[1]   eq(1)로 변경할것
               data_num[0] = $('.titletable').find("a").eq(0).attr("href").substring(20,24);
-              data_num[1] = $('.titletable').find("a").eq(0).attr("href").substring(20,24);
+              data_num[1] = $('.titletable').find("a").eq(1).attr("href").substring(20,24);
 
             callback(err,data_num);
           }
@@ -99,6 +99,8 @@ const tasks = [
 * DB에 접근해 데이터 갱신
 */
     function(menuArray, callback) {
+
+
     callback(null);
   }
 
@@ -127,6 +129,8 @@ exports.updateTodayMenu=function(menuArray,todayMenu){
     date_data=day[day_num]+'('+month+'월'+date+'일)'
 
 
+
+
     for(var i=0;i<menuArray.length;i++)
     {
         if(menuArray[i].day == date_data)
@@ -135,7 +139,6 @@ exports.updateTodayMenu=function(menuArray,todayMenu){
           todayMenu.lunch=menuArray[i].lunch;
           todayMenu.dinner=menuArray[i].dinner;
           todayMenu.extra=menuArray[i].extra;
-
           return;
         }
     }

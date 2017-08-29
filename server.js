@@ -7,6 +7,7 @@ var chatroomObj = require('./routes/chat_room');
 var commonFunction= require('./common/commonFunction');
 
 
+
 //keyboard
 app.get('/keyboard', keyboardObj.returnAlive);
 

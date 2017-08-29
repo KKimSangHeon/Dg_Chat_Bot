@@ -2,7 +2,7 @@ exports.processMessage = function (res,v_content,commonMessage,commonFunction,r_
   var message;
 
 
-  if(v_content===commonMessage.I_init_buttons[0]) //홈페이지 조회
+  if(v_content===commonMessage.I_init_buttons[4]) //홈페이지 조회
   {
    //홈페이지 조회
    commonFunction.sendMessageWithButton(res,commonMessage.M_select_homepage_menu,commonMessage.I_select_homepage_menu);

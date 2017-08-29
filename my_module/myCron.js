@@ -54,7 +54,7 @@ exports.executeRestaurantCron = function(menuArray,todayMenu)
 
   },null,true,"Asia/Seoul").start();
 
-    cron.schedule('59 23 * * *', function () {    //매일  23시 59분마다
+    cron.schedule('35 0 * * *', function () {    //매일  23시 59분마다
     dormRestaurantCron.updateTodayMenu(menuArray,todayMenu);
     console.log('['+commonFunction.getTime()+ ' 업데이트 완료] : 오늘 급식 데이터 갱신(24시간단위)');
     },null,true,"Asia/Seoul").start();

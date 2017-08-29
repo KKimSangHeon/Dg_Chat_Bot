@@ -13,7 +13,20 @@ message.S_go_to_init='초기화면으로';
 message.M_go_to_init='초기화면으로 돌아갑니다.';
 message.M_please_select='버튼을 선택해 주세요';
 
-message.I_init_buttons=['홈페이지 조회','도서관 좌석정보','기숙사 식단조회','통학버스 조회']; //초기버튼
+message.I_init_buttons=['버스도착정보(동국대)','도서관 좌석정보','기숙사 식단조회','통학버스 조회','홈페이지 조회']; //초기버튼
+
+
+
+//BIS 관련
+
+message.I_select_BIS=['금장1리방향','둥국대병원방향','초기화면으로'];
+message.M_select_BIS='조회할 버스를 눌러주세요'
+
+message.L_BIS=commonFunction.mergeString(
+                                   message.I_init_buttons[0]
+                                  ,message.I_select_BIS
+                                      );
+
 
 
 //홈페이지 관련
@@ -35,7 +48,7 @@ message.encourageRSS='http://web.dongguk.ac.kr/rssList.jsp?boardId=146&id=kr_070
 
 
 message.L_homepage=commonFunction.mergeString(
-                                        message.I_init_buttons[0]
+                                        message.I_init_buttons[4]
                                        ,message.I_select_homepage_menu
                                            );
 
@@ -66,15 +79,6 @@ message.L_food=commonFunction.mergeString(
                                            );
 
 
-
-
-
-
-
-
-
-
-
 message.I_select_bus_departure=['부산','양산','대구','울산','포항','초기화면으로'];
 message.M_select_bus_departure='출발지 혹은 도착지를 선택해 주세요';
 message.M_bus_departure_busan='■ 부산 등교\n서면(HSBC은행)(07:05, 08:30)\n→ 거제육교(07:15, 08:40)\n→ 한양프라자(07:20, 07:25, 08:45)\n→ 온천장1번출구(07:25, 07:30, 08:50)\n→ 금정구청맞은편(07:35, 07:40, 09:00)\n→ 양산간이정류장(07:45, 07:50, 09:10)\n→ 학교도착(08:50, 10:15)\n\n■ 부산 하교\n16 : 10(1대)\n양산간의정류장\n→ 금정구청\n→ 온천장\n→ 교대\n→ 거제리\n→ 서면\n\n17 : 10(1대)\n양산간의정류장\n→ 금정구청\n→ 온천장\n→ 교대\n→ 거제리\n→ 서면\n\n18 : 10(2대)\n양산간의정류장\n→ 금정구청\n→ 온천장\n→ 교대\n→ 거제리\n→ 서면';
@@ -99,7 +103,6 @@ message.L_bus=commonFunction.mergeString(
                                    message.I_init_buttons[3]
                                   ,message.I_select_bus_departure
                                       );
-
 
 
 

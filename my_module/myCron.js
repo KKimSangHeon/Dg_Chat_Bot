@@ -48,13 +48,13 @@ exports.executeRestaurantCron = function(menuArray,todayMenu)
   var cron=require('node-cron');
   var dormRestaurantCron=require('../my_module/dormRestaurantCronService');
 
-      cron.schedule('32 3 * * 1', function () {    //매주 월요일 03시 0분마다
+      cron.schedule('48 21 * * 0', function () {    //매주 월요일 03시 0분마다
       dormRestaurantCron.updateMenu(menuArray);
       console.log('['+commonFunction.getTime()+ ' 업데이트 완료] : 급식 데이터 갱신(1주단위)');
 
   },null,true,"Asia/Seoul").start();
 
-    cron.schedule('35 0 * * *', function () {    //매일  23시 59분마다
+    cron.schedule('12 22 * * *', function () {    //매일  23시 59분마다
     dormRestaurantCron.updateTodayMenu(menuArray,todayMenu);
     console.log('['+commonFunction.getTime()+ ' 업데이트 완료] : 오늘 급식 데이터 갱신(24시간단위)');
     },null,true,"Asia/Seoul").start();
@@ -87,7 +87,7 @@ exports.executeHomepageCron=function(regular,study,encourage){
   var homepageReadModule=require('../my_module/homepageReadModule');
 
 //    cron.schedule('00 09-18 * * *', function () {    //매일 9~18시 00분 마다
-      cron.schedule('42 9,10,11,12,13,14,15,16,17,18 * * 1,2,3,4,5', function () {    //매일 9~18시 36분 마다
+      cron.schedule('30 9,10,11,12,13,14,15,16,17,18 * * 1,2,3,4,5', function () {    //매일 9~18시 36분 마다
 
       homepageReadModule.updateHomepageData(regular,1);
       homepageReadModule.updateHomepageData(study,2);
@@ -99,3 +99,8 @@ exports.executeHomepageCron=function(regular,study,encourage){
     },null,true,"Asia/Seoul").start();
 
 }
+
+
+
+
+

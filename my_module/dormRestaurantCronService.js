@@ -119,7 +119,18 @@ exports.updateTodayMenu=function(menuArray,todayMenu){
     var commonMessage = require('../common/commonMessage');
     var date_data;
     var date= new Date();
-  //   var date = new Date("August 24, 2017");
+    
+    var increase ;
+    
+    if(date.getHours()>=21){
+    increase = 1;
+    }else{
+    increase = 0;
+    }
+   
+    date.setDate(date.getDate()+increase);
+	
+
 
      var day=new Array('일','월','화','수','목','금','토');
      var day_num=date.getDay();
@@ -137,6 +148,7 @@ exports.updateTodayMenu=function(menuArray,todayMenu){
         {
           todayMenu.breakfast=menuArray[i].breakfast;
           todayMenu.lunch=menuArray[i].lunch;
+
           todayMenu.dinner=menuArray[i].dinner;
           todayMenu.extra=menuArray[i].extra;
           return;

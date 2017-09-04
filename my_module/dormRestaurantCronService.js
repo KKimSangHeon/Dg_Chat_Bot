@@ -7,7 +7,7 @@ exports.updateMenu=function(menuArray){
   var dormRestaurantModule = require('../my_module/dormRestarurantModule');
   var menu1;
   var menu2;
-
+  var menu3;
 
 const URL ={
     list_page: 'https://dorm.dongguk.ac.kr/wiz/contents/board/board.php?home_id=living&handle=6/'
@@ -29,6 +29,13 @@ const tasks = [
               data_num[0] = $('.titletable').find("a").eq(0).attr("href").substring(20,24);
               data_num[1] = $('.titletable').find("a").eq(1).attr("href").substring(20,24);
 
+              if( $('.titletable').find("a").eq(2).attr("href")==null){
+                menu3 = 0;
+
+              }else {
+                data_num[2] = $('.titletable').find("a").eq(2).attr("href").substring(20,24);
+              }
+
             callback(err,data_num);
           }
         });
@@ -44,6 +51,12 @@ const tasks = [
         list_menu2='&searchColumn=&searchText=&page=1'
         menu1=list_menu1+data_num[0]+list_menu2;
         menu2=list_menu1+data_num[1]+list_menu2;
+
+        if(menu3 != 0 ){
+          menu3 = list_menu1+data_num[2]+list_menu2;
+
+        }
+
 
         if(menuArray.length===14)
             menuArray.length=0;
@@ -93,13 +106,43 @@ const tasks = [
         }
       });
     },
+    /*
+    * 4번함수
+    * 메뉴 사이트에 접근해서 데이터를 읽어와 menuArray에 push한다.
+    */
+        function(menuArray, callback) {
+          // 두 번째 게시글에 한해 데이터 전송
 
+          if(menu3 != 0){
+          var options = {
+            method: "GET",
+              uri: menu3,
+              headers: { "User-Agent": "Mozilla/5.0" },
+              encoding: null
+          };
+
+          request.get(options, function(err, res, html){
+            if (!err && res.statusCode === 200) {
+              var $ = cheerio.load(iconv.decode(new Buffer(html), 'euc-kr').toString(), {decodeEntities: false});
+              const $table =   $('td').eq(11);
+              var table_data = $table.text();
+              $ = cheerio.load(table_data);
+
+              dormRestaurantModule.processFoodData($,menuArray)
+              callback(err,menuArray);
+            }
+          });
+        }else{
+          callback(null,menuArray);
+        }
+        },
 /*
-* 4번함수
+* 5번함수
 * DB에 접근해 데이터 갱신
 */
     function(menuArray, callback) {
-
+      for(var i=0;i<menuArray.length;i++)
+        console.log(menuArray[i].day);
 
     callback(null);
   }
@@ -119,17 +162,17 @@ exports.updateTodayMenu=function(menuArray,todayMenu){
     var commonMessage = require('../common/commonMessage');
     var date_data;
     var date= new Date();
-    
+
     var increase ;
-    
+
     if(date.getHours()>=21){
     increase = 1;
     }else{
     increase = 0;
     }
-   
+
     date.setDate(date.getDate()+increase);
-	
+
 
 
      var day=new Array('일','월','화','수','목','금','토');

@@ -168,7 +168,8 @@ exports.processFoodData = function($,menuArray){
       var checker;  //테이블 태그가 두개의 경우의 수가 존재하여 추가.. 2017-08-25
 
     //페이지 테이블 변경으로 수정 2017-08-23
-     if($('td').eq(6).text().length < 6)
+
+     if($('td').eq(6).text().indexOf("일") < 1)
      {
        checker = 1;
        menuArray.push(exports.processCreateObject($,6+1,7+1,8+1,9+1,10+1,12+1,13+1,14+1,15+1,checker));

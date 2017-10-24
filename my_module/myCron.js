@@ -99,8 +99,3 @@ exports.executeHomepageCron=function(regular,study,encourage){
     },null,true,"Asia/Seoul").start();
 
 }
-
-
-
-
-

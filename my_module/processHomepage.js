@@ -41,5 +41,6 @@ exports.makeMessage= function(array)
     {
         message+=array[i].data;
     }
+
   return message;
 }

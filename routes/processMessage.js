@@ -1,4 +1,4 @@
-﻿module.exports=function(){
+module.exports=function(){
 
   var route = require('express').Router();
 
@@ -43,7 +43,6 @@
 
   myCron.initDormRestaurantData(menuArray,todayMenu);   //급식정보 초기화
   myCron.executeRestaurantCron(menuArray,todayMenu);    //급식정보 주기적 업데이트
-
 
   myCron.initHomepageData(r_homepageArray,s_homepageArray,e_homepageArray); //홈페이지 정보 초기화
   myCron.executeHomepageCron(r_homepageArray,s_homepageArray,e_homepageArray);  //홈페이지 정보 주기적 업데이트
@@ -96,12 +95,10 @@
     }
 
     else if(-1<commonMessage.L_homepage.indexOf(v_content))   //홈페이지 관련버튼 누름
-    {
+   {
        statistics[4]++;
-//       commonFunction.sendMessageWithButton(res,commonMessage.M_unknown_input+commonMessage.M_please_select,commonMessage.I_init_buttons);  //temp
-//        임시로 막아놓음 2017-10-17
         processHomepage.processMessage(res,v_content,commonMessage,commonFunction,r_homepageArray,s_homepageArray,e_homepageArray);
-    }
+   }
     else  //알 수 없는 입력
     {
         commonFunction.sendMessageWithButton(res,commonMessage.M_unknown_input+commonMessage.M_please_select,commonMessage.I_init_buttons);

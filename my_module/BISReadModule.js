@@ -9,7 +9,7 @@ exports.wayToGJ1ri=function(res,v_content,commonMessage,commonFunction,async,req
 
   // Configure the request
   var options = {
-      url: 'http://its.gyeongju.go.kr/bis/main/bstopLineBusArriveInfoAjax.do',
+      url: 'http://its.gyeongju.go.kr/bstopLineBusArriveInfoAjax.do',
       method: 'POST',
       headers: headers,
       form: { 'bStopid': '352000537'}
@@ -26,7 +26,7 @@ exports.wayToGJ1ri=function(res,v_content,commonMessage,commonFunction,async,req
             var temp='';
 
             for(var i=0;i<obj.length;i++){
-              temp += "■ "+obj[i].ROUTE_WAYPOINT+"번 버스 ";
+              temp += "■ "+obj[i].ROUTE_NAME+"번 버스 ";
               if(obj[i].REMAIN_BSTOP_CNT_VIEW != null)
               {
                 temp+=": "+ obj[i].REMAIN_BSTOP_CNT_VIEW;
@@ -58,7 +58,7 @@ exports.wayToHospital=function(res,v_content,commonMessage,commonFunction,async,
 
 
   var options = {
-      url: 'http://its.gyeongju.go.kr/bis/main/bstopLineBusArriveInfoAjax.do',
+      url: 'http://its.gyeongju.go.kr/bstopLineBusArriveInfoAjax.do',
       method: 'POST',
       headers: headers,
       form: { 'bStopid': '352000533'}
@@ -75,7 +75,7 @@ exports.wayToHospital=function(res,v_content,commonMessage,commonFunction,async,
           var temp='';
 
           for(var i=0;i<obj.length;i++){
-            temp += "■ "+obj[i].ROUTE_WAYPOINT+"번 버스 ";
+            temp += "■ "+obj[i].ROUTE_NAME+"번 버스 ";
             if(obj[i].REMAIN_BSTOP_CNT_VIEW != null)
             {
               temp+=": "+ obj[i].REMAIN_BSTOP_CNT_VIEW;

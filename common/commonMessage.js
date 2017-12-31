@@ -10,18 +10,39 @@ var commonFunction = require('./commonFunction');
 message.M_unknown_input='알수없는 입력입니다.\n'
 
 message.S_go_to_init='초기화면으로';
+message.I_go_to_init='99';  //초기화면으로 이동하는 입력
 message.M_go_to_init='초기화면으로 돌아갑니다.';
 message.M_please_select='버튼을 선택해 주세요';
 
-message.I_init_buttons=['버스도착정보(동국대)','도서관 좌석정보','기숙사 식단조회','통학버스 조회','홈페이지 조회']; //초기버튼
+message.I_init_buttons=['버스도착정보','도서관 좌석정보','기숙사 식단조회','통학버스 조회','홈페이지 조회']; //초기버튼
 
 
 
 //BIS 관련
 
-message.I_select_BIS=['금장1리방향','둥국대병원방향','초기화면으로'];
-message.M_select_BIS='조회할 버스를 눌러주세요'
+message.I_select_BIS=['1','2','3','4','초기화면으로'];
+message.I_BusStopId_BIS=[
+'352000537',   //1.동국대학교(금장1리)
+'352000533',   //2.동국대학교(동국대병원)'
+'352000539',   //3.성건주공아파트(동대교)
+'352000531',   //4.성건주공아파트(성건파출소)'
+// '352001290',   //5.시외버스터미널
+// '352001345',   //5.시외버스터미널,고속버스터미널(고속버스터미널)
+'초기화면으로'];
+//old version
+// 버스도착정보제공 확대에 따른 수정
+//message.M_select_BIS='조회할 버스를 눌러주세요'
 
+message.M_select_BIS='조회할 정류장의 숫자만 입력해주세요.\n정류장(이동방향)\n------------------------\n'+
+'\n1.동국대학교(금장1리)'+
+'\n2.동국대학교(동국대병원)'+
+'\n3.성건주공아파트(동대교)'+
+'\n4.성건주공아파트(성건파출소)'+
+// '\n5.시외버스터미널(동대교)'+
+// '\n6.시외버스터미널.고속버스터미널(고속버스터미널)'+
+
+'\n\n99초기화면으로'
+;
 message.L_BIS=commonFunction.mergeString(
                                    message.I_init_buttons[0]
                                   ,message.I_select_BIS

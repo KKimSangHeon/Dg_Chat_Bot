@@ -58,17 +58,13 @@ module.exports=function(){
                     "통학버스 : "+ statistics[3]+"\n"+
                     "홈페이지 : "+ statistics[4]+"\n=========="
       );
-
-
-
     }
 
     var v_type = req.body.type;
     var v_user_key = req.body.user_key;
     var v_content = req.body.content;
 
-
-    if(v_content===commonMessage.S_go_to_init)  //초기화면
+    if(v_content===commonMessage.S_go_to_init || v_content==commonMessage.I_go_to_init )  //초기화면
     {
         commonFunction.sendMessageWithButton(res,commonMessage.M_please_select,commonMessage.I_init_buttons);
     }

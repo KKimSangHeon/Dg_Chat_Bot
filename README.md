@@ -15,5 +15,5 @@
 버스기능수정예정
 ### 2017-12-31
 버스도착정보제공 기능 동작방식 버튼->입력으로 수정
-check AWS email
+check AWS email, BIS
 

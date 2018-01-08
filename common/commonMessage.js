@@ -46,7 +46,6 @@ message.M_select_BIS='조회할 정류장의 숫자만 입력해주세요.\n정�
 message.L_BIS=commonFunction.mergeString(
                                    message.I_init_buttons[0]
                                   ,message.I_select_BIS
-                                  ,'c'
                                       );
 
 

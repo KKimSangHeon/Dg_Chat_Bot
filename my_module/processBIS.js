@@ -11,11 +11,6 @@ exports.processMessage = function (res,v_content,commonMessage,commonFunction,BI
      commonFunction.sendMessage(res,commonMessage.M_select_BIS);
 
    }
-   else if(v_content==='c')
-   {
-     BISReadModule.processCoin(res,commonFunction,request,async);
-
-   }
    else if((index = commonMessage.I_select_BIS.indexOf(v_content)) != -1)
    {
      // indexOf를 이용해 if문을 줄임.

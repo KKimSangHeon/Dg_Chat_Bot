@@ -142,3 +142,111 @@ exports.processByBusStopId=function(res,v_content,commonMessage,commonFunction,a
     }
   })
 }
+
+exports.processCoin=function(res,commonFunction,request,async){
+
+
+  var headers = {
+      'User-Agent':       'Super Agent/0.0.1',
+      'Content-Type':     'application/x-www-form-urlencoded'
+  }
+  var options = {
+      url: 'https://crix-api-endpoint.upbit.com/v1/crix/candles/minutes/1?code=CRIX.UPBIT.KRW-ADA',
+      method: 'GET',
+      headers: headers,
+  }
+
+  const tasks = [
+      function(callback){
+        var temp='';
+      request(options, function (error, response, body) {
+          if (!error && response.statusCode == 200) {
+              // Print out the response body
+
+              var jsonContent=  JSON.parse(body);
+
+              var resString='에이다: '+jsonContent[0].openingPrice+'\n';
+              temp=resString;
+
+              callback(null,temp);
+          }
+        })
+
+      },
+
+      function(temp, callback) {
+          options.url = 'https://crix-api-endpoint.upbit.com/v1/crix/candles/minutes/1?code=CRIX.UPBIT.KRW-XRP'
+
+          request(options, function (error, response, body) {
+              if (!error && response.statusCode == 200) {
+                  var jsonContent=  JSON.parse(body);
+
+                  var resString ='리플: '+jsonContent[0].openingPrice+'\n';
+                  temp+=resString;
+                  callback(null,temp);
+              }
+            })
+          },
+          function(temp, callback) {
+            options.url = 'https://crix-api-endpoint.upbit.com/v1/crix/candles/minutes/1?code=CRIX.UPBIT.KRW-QTUM'
+
+            request(options, function (error, response, body) {
+                if (!error && response.statusCode == 200) {
+                    var jsonContent=  JSON.parse(body);
+
+                    var resString ='퀀텀: '+jsonContent[0].openingPrice+'\n';
+                    temp+=resString;
+                    callback(null,temp);
+                }
+              })
+            },
+            function(temp, callback) {
+                options.url = 'https://crix-api-endpoint.upbit.com/v1/crix/candles/minutes/1?code=CRIX.UPBIT.KRW-SNT'
+
+                request(options, function (error, response, body) {
+                    if (!error && response.statusCode == 200) {
+                        // Print out the response body
+
+                        var jsonContent=  JSON.parse(body);
+
+                        var resString ='스테이터스네트워크: '+jsonContent[0].openingPrice+'\n';
+                        temp+=resString;
+
+                        callback(null,temp);
+                    }
+                  })
+                },
+                function(temp, callback) {
+                    options.url = 'https://crix-api-endpoint.upbit.com/v1/crix/candles/minutes/1?code=CRIX.UPBIT.KRW-XLM'
+
+                    request(options, function (error, response, body) {
+                        if (!error && response.statusCode == 200) {
+                            // Print out the response body
+
+                            var jsonContent=  JSON.parse(body);
+
+                            var resString ='스텔라루멘: '+jsonContent[0].openingPrice+'\n';
+                            temp+=resString;
+
+                                commonFunction.sendMessage(res,temp);
+
+                            callback(null);
+                        }
+                      })
+                    }
+
+
+  ];
+
+  async.waterfall(tasks, function(err){
+    if (!err) {
+  
+    } else {
+      console.error(err);
+    }
+  });
+
+
+
+
+}

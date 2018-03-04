@@ -25,13 +25,16 @@ const tasks = [
             let $ = cheerio.load(html);
             let data_num =[];
 
-            //수정사항: data_num[1]   eq(1)로 변경할것
-              data_num[0] = $('.titletable').find("a").eq(0).attr("href").substring(20,24);
-              data_num[1] = $('.titletable').find("a").eq(1).attr("href").substring(20,24);
+            data_num[0] = $('.titletable').find("a").eq(0).attr("href").substring(20,24);
+
+              if( $('.titletable').find("a").eq(1).attr("href")==null){
+                menu2 = 0;
+              }else {
+                data_num[1] = $('.titletable').find("a").eq(1).attr("href").substring(20,24);
+              }
 
               if( $('.titletable').find("a").eq(2).attr("href")==null){
                 menu3 = 0;
-
               }else {
                 data_num[2] = $('.titletable').find("a").eq(2).attr("href").substring(20,24);
               }
@@ -50,13 +53,14 @@ const tasks = [
         list_menu1='https://dorm.dongguk.ac.kr/wiz/contents/board/board0/board_view.php?board_id=6%2F&handle=6%2F&home_id=living&board_seq='
         list_menu2='&searchColumn=&searchText=&page=1'
         menu1=list_menu1+data_num[0]+list_menu2;
-        menu2=list_menu1+data_num[1]+list_menu2;
+
+        if(menu2 != 0 ){
+          menu2 = list_menu1+data_num[1]+list_menu2;
+        }
 
         if(menu3 != 0 ){
           menu3 = list_menu1+data_num[2]+list_menu2;
-
         }
-
 
         if(menuArray.length===14)
             menuArray.length=0;
@@ -87,6 +91,7 @@ const tasks = [
 */
     function(menuArray, callback) {
       // 두 번째 게시글에 한해 데이터 전송
+    if(menu2 != 0){
       var options = {
         method: "GET",
           uri: menu2,
@@ -105,13 +110,14 @@ const tasks = [
           callback(err,menuArray);
         }
       });
+    }
     },
     /*
     * 4번함수
     * 메뉴 사이트에 접근해서 데이터를 읽어와 menuArray에 push한다.
     */
         function(menuArray, callback) {
-          // 두 번째 게시글에 한해 데이터 전송
+          // 세 번째 게시글에 한해 데이터 전송
 
           if(menu3 != 0){
           var options = {
@@ -128,19 +134,22 @@ const tasks = [
               var table_data = $table.text();
               $ = cheerio.load(table_data);
 
-              dormRestaurantModule.processFoodData($,menuArray)
+              dormRestaurantModule.processFoodData($,menuArray);
               callback(err,menuArray);
             }
           });
         }else{
           callback(null,menuArray);
         }
+
         },
 /*
 * 5번함수
 * DB에 접근해 데이터 갱신
 */
     function(menuArray, callback) {
+
+
       for(var i=0;i<menuArray.length;i++)
         console.log(menuArray[i].day);
 

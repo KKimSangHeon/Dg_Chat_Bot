@@ -23,7 +23,7 @@ const tasks = [
 
         request.get(options, function(err, res, html){
           if (!err && res.statusCode === 200) {
-            var $ = cheerio.load(iconv.decode(new Buffer(html), 'euc-kr').toString(), {decodeEntities: false});
+            var $ = cheerio.load(iconv.decode(html, 'euc-kr').toString(), {decodeEntities: false});
             var res_data='';
 
             for(var i=0;i<10;i++)

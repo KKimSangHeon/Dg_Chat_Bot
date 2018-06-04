@@ -75,7 +75,7 @@ const tasks = [
 
         request.get(options, function(err, res, html){
           if (!err && res.statusCode === 200) {
-            var $ = cheerio.load(iconv.decode(new Buffer(html), 'euc-kr').toString(), {decodeEntities: false});
+            var $ = cheerio.load(iconv.decode(html, 'euc-kr').toString(), {decodeEntities: false});
             const $table =   $('td').eq(11);
             var table_data = $table.text();
             $ = cheerio.load(table_data);
@@ -101,7 +101,7 @@ const tasks = [
 
       request.get(options, function(err, res, html){
         if (!err && res.statusCode === 200) {
-          var $ = cheerio.load(iconv.decode(new Buffer(html), 'euc-kr').toString(), {decodeEntities: false});
+          var $ = cheerio.load(iconv.decode(html, 'euc-kr').toString(), {decodeEntities: false});
           const $table =   $('td').eq(11);
           var table_data = $table.text();
           $ = cheerio.load(table_data);
@@ -129,7 +129,7 @@ const tasks = [
 
           request.get(options, function(err, res, html){
             if (!err && res.statusCode === 200) {
-              var $ = cheerio.load(iconv.decode(new Buffer(html), 'euc-kr').toString(), {decodeEntities: false});
+              var $ = cheerio.load(iconv.decode(html, 'euc-kr').toString(), {decodeEntities: false});
               const $table =   $('td').eq(11);
               var table_data = $table.text();
               $ = cheerio.load(table_data);

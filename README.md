@@ -10,6 +10,3 @@
 
 ![](https://kkimsangheon.github.io/2017/08/11/dg-chat-bot/dgchat.png) 
 플러스 친구 추가 후 통학버스 조회, 기숙사 식단조회, 도서관 좌석조회, 홈페이지 조회 기능을 사용할 수 있습니다.
-
-# URL
-버스기능수정예정

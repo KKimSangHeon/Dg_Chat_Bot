@@ -14,25 +14,31 @@
 카카오톡 내 친구검색기능을 활용하여 "동국대학교 경주캠퍼스 채팅봇"을 검색하면 위와같이 출력됩니다.
 
 ![](https://kkimsangheon.github.io/2017/08/11/dg-chat-bot/2.png) 
+
 해당 봇과 채팅을 시도하게 되면 화면에 보이는 기능(버스 도착정보, 도서관 좌석정보, 기숙사 식단조회, 통학버스 조회, 홈페이지 조회)을 제공합니다.
 
 ![](https://kkimsangheon.github.io/2017/08/11/dg-chat-bot/3.png) 
+
 초기 화면에서 버스도착정보 버튼을 선택하고 조회할 정류장의 숫자를 입력하게 되면 위와같이 버스도착정보를 실시간으로 조회 가능합니다.
 
 ![](https://kkimsangheon.github.io/2017/08/11/dg-chat-bot/4.png) 
+
 초기 화면에서 도서관 좌석정보 버튼을 선택하면 다음과 같이 실시간 잔여석을 확인 가능합니다.
 
-![](https://kkimsangheon.github.io/2017/08/11/dg-chat-bot/5.png) 
+![](https://kkimsangheon.github.io/2017/08/11/dg-chat-bot/5.png)
+
 초기화면에서 기숙사 식단조회 버튼을 선택하고 아침, 점심, 저녁, 야식 메뉴중 한가지를 선택할 경우 당일의 식단 메뉴를 확인할 수 있습니다.
 
 ![](https://kkimsangheon.github.io/2017/08/11/dg-chat-bot/6.png) 
+
 초기화면에서 통학버스 조회 버튼을 선택하고 지역(부산, 양산, 대구, 울산, 포항)을 선택하게 되면 해당 지역의 통학버스 정보를 조회할 수 있습니다.
 
 ![](https://kkimsangheon.github.io/2017/08/11/dg-chat-bot/7.png) 
+
 초기화면에서 홈페이지 조회 버튼을 선택하고 일반, 학사, 장학 중 하나를 선택하게 되면 최근 등록된 10개의 게시물을 조회할 수 있습니다.
 
 ![](https://kkimsangheon.github.io/2017/08/11/dg-chat-bot/article.jpg) 
-{% asset_img article.jpg 관련기사 %}
+
 교내신문에 관련 기사가 실리기도 하였습니다.
 
 # 서버

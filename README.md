@@ -41,8 +41,5 @@
 
 교내신문에 관련 기사가 실리기도 하였습니다.
 
-# 서버
-2018-06-02
-기존 AWS를 사용했지만 무료이용기간이 만료되어 구글클라우드 플랫폿을 이용.
 
 [github Repository](https://github.com/KKimSangHeon/Dg_Chat_Bot)

@@ -39,7 +39,7 @@
 
 ![](https://kkimsangheon.github.io/2017/08/11/dg-chat-bot/article.jpg) 
 
-교내신문에 관련 기사가 실리기도 하였습니다.
+교내신문에 관련 기사가 실리기도 하였습니다
 
 
 [github Repository](https://github.com/KKimSangHeon/Dg_Chat_Bot)
